@@ -40,12 +40,7 @@ db.init_app(app)
 jwt.init_app(app)
 
 # Configurar CORS
-CORS(app, origins=[
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "https://*.vercel.app",
-    "https://*.netlify.app"
-] )
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # Importar y registrar blueprints
 from routes.auth import auth_bp
